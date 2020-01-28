@@ -47,12 +47,12 @@ describe("Get jokes", () => {
     test("get jokes type", async () => {
         const res = await supertest(server)
             .get('/api/jokes/')
-            expect(res.type).toMatch('text/html')
+            expect(res.type).toMatch('application/json')
     })
 
     test("get jokes unauthorized", async () => {
         const res = await supertest(server)
             .get('/api/jokes/')
-            expect(res.status).toBe(500)
+            expect(res.status).toBe(400)
     })
 })
